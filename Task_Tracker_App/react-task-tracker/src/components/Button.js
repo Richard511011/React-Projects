@@ -2,7 +2,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-//Component for the buttons, takes in a color, text, and onClick prop
+//Component for the buttons, takes in a color, text, and onClick  prop
 const Button = ({color,text}) => {
     const onClick = ()=>{
         console.log('click')
