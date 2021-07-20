@@ -15,11 +15,18 @@ function App() {
         remainder: true},
     ]
 );
+
+// Delete Tasks
+
+const deleteTask = (id)=>{
+  // following code is for each task thats id is not equal to the given ID, we want it to show.
+setTasks(tasks.filter((tasks)=>tasks.id!==id))
+}
   return (
     //whatever you return MUST be a single element
     <div className='container' >
-      <Header title={'The App'}/>
-      <Tasks tasks={tasks}/>
+      <Header /> 
+      {tasks.length>0 ? <Tasks tasks={tasks} onDelete={deleteTask}/>:'No Tasks to show'}
     </div>
 
   )

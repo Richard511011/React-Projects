@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types'
-import React from 'react';
+import React from 'react'
 import Button from './Button'
-const Header = ({title,  name,onClick}) => {
+const Header = ({title,onClick}) => {
     return (
         <header>
-         <h1>Task Tracker {title} {name}</h1>
+         <h1>{title} </h1>
          <Button color='green' text = 'Add'/>
       
         </header>

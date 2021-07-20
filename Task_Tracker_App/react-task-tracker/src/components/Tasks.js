@@ -16,13 +16,13 @@ import Task from './Task'
 
 
 //Handles multiple tasks, component takes in a array of tasks and outputs it back to App.js
-const Tasks = ({tasks}) => {
+const Tasks = ({tasks,onDelete}) => {
    
     return (
        <>
        {/* Using a list with tasks.map, for each loop with each element in tasks, send it to Task.js to display  */}
        {tasks.map((task)=>(
-        <Task key={task.id} task={task}/>
+        <Task key={task.id} task={task} onDelete={onDelete}/>
        ))}
        
        </>
