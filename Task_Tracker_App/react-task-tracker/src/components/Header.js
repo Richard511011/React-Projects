@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Button from './Button'
-const Header = ({title,onClick}) => {
+const Header = ({title,onAdd,showAdd}) => {
     return (
         <header>
          <h1>{title} </h1>
-         <Button color='green' text = 'Add'/>
+         <Button color={showAdd? 'red':'green'} onClick={onAdd} text = {showAdd? 'close':'Add'}/>
       
         </header>
 
@@ -17,8 +17,8 @@ Header.defaultProps = {
 }
 Header.propTypes = {
     title: PropTypes.string,
-    color: PropTypes.string,
-    onclick: PropTypes.func.isRequired,
+    // color: PropTypes.string,
+    // onclick: PropTypes.func.isRequired,
 
 }
     export default Header
