@@ -10,30 +10,33 @@ function App() {
         {id: 1,
             text: "Panera Bread Jam Session",
             day: "Today",
-            reminder: true},
+            reminder: false},
         {id: 2,
         text: "Burger Interview",
         day: "next monday",
-        reminder: true},
+        reminder: false},
     ]
 );
 //Toggle reminder
 const toggleReminder=(id)=>{
+  console.log(id)
   //iterating through the task array. if the id passed is equal to the task id the iterator is on flip the task.reminder boolean,
-setTasks(tasks.map((task)=>task.id===id ? {...task,reminder:!task.remainder}:task))
+setTasks(tasks.map((task)=>task.id===id ? {...task,reminder:(!task.remainder)}:task))
 }
 
 // Delete Tasks
 
 const deleteTask = (id)=>{
+  console.log('delete',id)
   // following code is for each task thats id is not equal to the given ID, we want it to show.
 setTasks(tasks.filter((tasks)=>tasks.id!==id))
 }
 const addTask=(task)=>{
-  const id = Math.floor(Math.random()*10000)+1
-  // console.log(id);
-  const newTask={id, ...task}
-  setTasks([...tasks,newTask])
+  console.log(task);
+  // const id = Math.floor(Math.random()*10000)+1
+  // // console.log(id);
+  // const newTask={id, ...task}
+  // setTasks([...tasks,newTask])
 }
 
 return(
