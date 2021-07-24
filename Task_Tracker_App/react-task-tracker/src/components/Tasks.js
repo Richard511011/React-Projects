@@ -21,9 +21,9 @@ const Tasks = ({tasks,onDelete,onToggle}) => {
     return (
        <>
        {/* Using a list with tasks.map, for each loop with each element in tasks, send it to Task.js to display  */}
-       {tasks.map((task)=>(
+       {tasks.map((task,index)=>(
         <Task 
-            key={task.id} 
+            key={index} 
             task={task} 
             onDelete={onDelete} 
             onToggle={onToggle}/>
