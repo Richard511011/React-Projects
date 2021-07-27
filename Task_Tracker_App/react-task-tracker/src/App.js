@@ -1,8 +1,11 @@
 
 import Header from './components/Header'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Tasks from './components/Tasks'
+import Footer from './components/Footer'
 import {useState,useEffect} from 'react'
 import AddTask from './components/AddTask'
+import About from './components/About'
 function App() {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks,setTasks] = useState(
@@ -68,6 +71,8 @@ const deleteTask = async(id)=>{
   // following code is for each task thats id is not equal to the given ID, we want it to show.
 setTasks(tasks.filter((tasks)=>tasks.id!==id))
 }
+
+
 const addTask=async(task)=>{
   const res = await fetch('http://localhost:5000/tasks',
   {
@@ -75,7 +80,7 @@ const addTask=async(task)=>{
     headers:{
     'Content-type':'application/json'
   }, 
-  body:JSON.stringify(task)
+  body: JSON.stringify(task)
  } )
  const data = await res.json()
  setTasks([...tasks,data])
@@ -87,14 +92,24 @@ const addTask=async(task)=>{
 }
 
 return(
-    //whatever you return MUST be a single element
+   //whatever you return MUST be a single element
+  <Router>
+   
     <div className='container' >
       <Header onAdd={()=> setShowAddTask(!showAddTask)} showAdd={showAddTask}/> 
-      {showAddTask&&<AddTask onAdd={addTask}/>}
+      
+      <Route path ='/' exact render={(props)=>(
+        <>
+          {showAddTask&&<AddTask onAdd={addTask}/>}
       {tasks.length>0 ?
       <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>:'No Tasks to show'}
+        </>
+      )}/>
+      <Route path = '/About' component={About}/>
+  
+ <Footer/> 
     </div>
-
+    </Router>
   )
 }
 
