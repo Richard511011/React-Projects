@@ -73,7 +73,7 @@ setTasks(tasks.filter((tasks)=>tasks.id!==id))
 }
 
 
-const addTask=async(task)=>{
+const addTask= async(task)=>{
   const res = await fetch('http://localhost:5000/tasks',
   {
     method:'POST',
