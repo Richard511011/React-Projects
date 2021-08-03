@@ -7,7 +7,7 @@ const AddTask = ({onAdd}) => {
 
     const onSubmit=(e)=>{
         e.preventDefault()
-        if(!text){
+        if(!text ){
             alert('please add task')
             return
         }
